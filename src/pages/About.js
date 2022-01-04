@@ -7,7 +7,7 @@ import qs from "query-string";
 const About=()=>{
     const {name} = useParams();
     const {search} = useLocation();
-    const detail = qs.parse(search).detail === 'true';
+    const detail = qs.parse(search).detail === 'true';    
 
     return (
         <div>

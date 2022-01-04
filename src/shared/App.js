@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import {Route, Routes} from 'react-router-dom';
-import {Home,About} from '../pages';
-import Menu from '../components/Menu';
+import {Home,About} from 'pages/index';
+import Menu from 'components/Menu';
+/* Menu 는 원래 '../components/Menu'로 임포트 해야하지만,
+ * jsconfig.json 파일에 compilerOptions등의 속성으로 root path를 미리 정의하면
+ * 일반 js 파일에서는 상대경로대신 절대경로를 작성하여 임포트 할 수 있게 됨
+ * 블로그에서 안내해준 "NODE_PATH=src" (package.json의 scripts 부분)은 이제 지원X
+ */
 
 class App extends Component {
     render() {
