@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Route, Routes} from 'react-router-dom';
-import {Home,About} from 'pages/index';
+import {Home,About,AboutPeople} from 'pages/index';
 import Menu from 'components/Menu';
 /* Menu 는 원래 '../components/Menu'로 임포트 해야하지만,
  * jsconfig.json 파일에 compilerOptions등의 속성으로 root path를 미리 정의하면
@@ -21,8 +21,12 @@ class App extends Component {
                         /* component 속성 대신 element로 변경됨 */
                         element={<Home/>}
                     />
-                    <Route path="/about" element={<About/>}/>
-                    <Route path="/about/:name" element={<About/>}/>
+                    {/* <Route path="/about" element={<About/>}/>
+                    <Route path="/about/:name" element={<About/>}/> */}
+                    <Route path="/about" element={<About/>}>
+                        <Route index element={<div>there's no parameters</div>} />
+                        <Route path=":name" element={<AboutPeople />} />
+                    </Route>
                 </Routes>
             </div>
         );
